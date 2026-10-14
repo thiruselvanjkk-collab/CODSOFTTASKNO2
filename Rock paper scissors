@@ -1,0 +1,16 @@
+import random
+choices=['Rock','Paper','Scissor']
+player=input('Rock!Paper!!Scissor!!!:').capitalize()
+computer=random.choice(choices)
+print(f'you chose{player}')
+print(f'computer chose{computer}')
+if computer==player:
+    print('Its a tie')
+elif player=='Rock' and computer=='Scissor':
+    print('You win')
+elif player=='Paper' and computer=='Rock':
+    print('You win')
+elif player=='Scissor' and computer=='Paper':
+    print('You win')
+else:
+    print('You lose')
