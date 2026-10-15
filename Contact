@@ -1,0 +1,75 @@
+contacts = {}
+
+def add_contact():
+    name = input('Enter name: ')
+    if name in contacts:
+        print('Already Exists!')
+    else:
+        phone = input('Enter your Number: ')
+        contacts[name] = phone
+        print('Saved successfully!')
+
+def delete_contact():
+    name = input('Enter name to delete: ')
+    if name in contacts:
+        del contacts[name]
+        print('Deleted successfully!')
+    else:
+        print('Contact not found!')
+
+def update_contact():
+    name = input('Enter name to update: ')
+    if name in contacts:
+        new_phone = input('Enter new Number: ')
+        contacts[name] = new_phone
+        print('Updated successfully!')
+    else:
+        print('Contact not found!')
+
+def search_contact():
+    name = input('Enter name to search: ')
+    if name in contacts:
+        print(f"Found -> {name}: {contacts[name]}")
+    else:
+        print('Contact not found!')
+
+def display_contacts():
+    if not contacts:
+        print("Your contact list is empty.")
+    else:
+        print("\n--- Contact List ---")
+        for name, phone in contacts.items():
+            print(f"{name}: {phone}")
+
+
+while True:
+    print('\n======= Contact =======')
+    print('1. Add Contact')
+    print('2. Delete Contact')
+    print('3. Update')
+    print('4. Search')
+    print('5. Display')
+    print('6. Exit')
+    print('=======================')
+    
+    try:
+        choice = int(input('Enter your choice (1-6): '))
+    except ValueError:
+        print("Invalid input! Please enter a number between 1 and 6.")
+        continue
+        
+    if choice == 1:
+        add_contact()
+    elif choice == 2:
+        delete_contact()
+    elif choice == 3:
+        update_contact()
+    elif choice == 4:
+        search_contact()
+    elif choice == 5:
+        display_contacts()
+    elif choice == 6:
+        print("Exiting application. Goodbye!")
+        break
+    else:
+        print("Invalid option! Please pick a number from 1 to 6.")
